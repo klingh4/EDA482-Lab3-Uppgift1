@@ -1,0 +1,38 @@
+Uppgift 1
+
+I den här uppgiften skall ni skriva ett program som m.h.a. systick och interna interrupts lägger ut en fyrkantsvåg på pinne 0 på Port E. 
+
+Följande funktioner skall implementeras: 
+
+// I den här funktionen skall lägre byten av Port E förberedas för att lägga
+// ut en signal på pinne 0. Den skall bara kallas en gång. 
+void InitSquareWave(); 
+
+// När man kallat den här funktionen skall en fyrkantsvåg med given period 
+// (i mikrosekunder) läggas ut på pinne 0, Port E. Perioden skall kunna 
+// vara upp till 99000 mikrosekunder.
+void StartSquarewave(unsigned int period_in_us);
+
+// Den här funktionen skall avbryta fyrkantsvågen. 
+void StopSquareWave(); 
+
+För att testa funktionerna kan ni koppla in en bargraph på Port E och kontrollera att första lampan blinkar med följande kod i main:
+
+// Den här siffran skall sättas lämpligt för att ni skall kunna se den blinkande
+// lampan i simulatorn.
+#define PERIOD 100
+
+void main()
+{
+  InitSquareWave();
+  StartSquareWave(PERIOD); 
+  while(1) { /* Gör ingenting */ }
+  StopSquareWave(); 
+}
+
+När ni dubblar periodtiden skall lampan blinka hälften så fort. Kom ihåg att simulatorn är mycket långsammare än den riktiga hårdvaran, så ni kan inte testa att periodtiden är korrekt på simulatorn.
+
+SysTick beskrevs i Lektion 6 och interna avbrott beskrevs i Lektion 8.
+Tips
+
+    Eftersom perioden maximalt ska kunna vara 99000 mikrosekunder, betyder det att Systick-räknaren kan räkna hela intervallet "på egen hand". Det behövs alltså inga hjälpfunktioner (t.ex. delay_1mikro(), delay() osv.) eller flaggor (t.ex. systick_flag) som förekommer i boken. Förutsatt att ni har ställt in Systick på rätt intervall och lagt till er interrupt handler i vektortabellen, kommer er interrupt handler enbart behöva invertera ("flippa") bit 0 på port E.
