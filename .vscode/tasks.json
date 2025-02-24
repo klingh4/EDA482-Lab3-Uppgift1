@@ -1,0 +1,45 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "Build MD407 project",
+            "command": "${config:mdx07-templates.makePath}${config:mdx07-templates.makeExecutable}",
+            "args": [
+                "all",
+                "GCC_PATH=${config:mdx07-templates.armToolchainPath}",
+                "APP_NAME=${config:mdx07-templates.appName}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc",
+                {
+                    "owner": "custom",
+                    "fileLocation": ["relative", "${workspaceFolder}"],
+                    "pattern": {
+                        "regexp": "^(.*):(\\d+):\\s*(Error|Warning):\\s*(.*)$",
+                        "file": 1,
+                        "line": 2,
+                        "severity": 3,
+                        "message": 4
+                    }
+                }
+            ],
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "Clean MD407 project",
+            "command": "${config:mdx07-templates.makePath}${config:mdx07-templates.makeExecutable}",
+            "args": [
+                "clean",
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build"
+        }
+    ]
+}

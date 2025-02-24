@@ -1,0 +1,15 @@
+{
+    "cortex-debug.gdbPath.linux": "gdb-multiarch",
+    "files.associations": {
+        "*.s": "arm"
+    },
+    "errorLens.messageBackgroundMode": "line",
+    "C_Cpp.default.includePath": [
+      "${workspaceFolder}/inc",
+      "${workspaceFolder}/lib/inc",
+      "${workspaceFolder}/src"
+    ],
+    "C_Cpp.default.intelliSenseMode": "gcc-arm",
+    "C_Cpp.errorSquiggles": "disabled",
+    "mdx07-templates.appName": "Uppgift-1"
+}
