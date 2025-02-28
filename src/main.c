@@ -1,10 +1,7 @@
 #include "h_systick.h"
 #include "h_interrupt.h"
+#include "h_header.h"
 
-
-// Den här siffran skall sättas lämpligt för att ni skall kunna se den blinkande
-// lampan i simulatorn.
-#define PERIOD 100
 
 void main()
 {
@@ -13,5 +10,4 @@ void main()
   while(1) { /* Gör ingenting */ }
   StopSquareWave(); 
 }
-
 

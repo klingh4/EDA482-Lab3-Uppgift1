@@ -1,7 +1,8 @@
 {
     "cortex-debug.gdbPath.linux": "gdb-multiarch",
     "files.associations": {
-        "*.s": "arm"
+      "*.s": "arm",
+      "h_systick.h": "c"
     },
     "errorLens.messageBackgroundMode": "line",
     "C_Cpp.default.includePath": [
