@@ -19,6 +19,7 @@ void delay_micro(unsigned int us) {
 }
 
 void delay_milli(unsigned int ms) {
-	for(unsigned int i=0; i < ms; i++) 
+	for(unsigned int i=0; i < ms; i++) {
 		delay_micro(1000); 
+	}
 }
