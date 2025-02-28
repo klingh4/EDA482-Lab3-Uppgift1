@@ -5,7 +5,7 @@ void delay_250ns() {
 	*STK_LOAD = 42;
 	*STK_VAL = 0;
 	*STK_CTRL = 0x5;
-	while((*STK_CTRL & 0x10000) == 0);
+	while ((*STK_CTRL & 0x10000) == 0);
 	*STK_CTRL = 0;
 }
 
